@@ -13,7 +13,7 @@
 #define MONITOR_H
 
 #include <stdbool.h>
-
+// Here we have signals that help keep track of machine state.
 typedef enum {
 	MS_IDLE,
 	MS_BUSY,
@@ -24,7 +24,10 @@ typedef enum {
 // The monitor enters the TS_IDLE or TS_COLLISION states when that happens
 #define TRANSMISSION_TIMEOUT_US 1110
 
-
+/**
+ * This method initailizes the monitor component 
+ * of the system and makes it active.
+ */
 void monitor_start(bool exti9_enable);
 MONITOR_STATE monitor_getState();
 void monitor_jam();
